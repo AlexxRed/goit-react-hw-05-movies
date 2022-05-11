@@ -1,6 +1,6 @@
 import { Link, Header } from './AppBar.styled';
 
-export default function AppBar() {
+export  function AppBar() {
     return (
         <Header>
             <nav>

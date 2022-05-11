@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const Navigation = styled(NavLink)`
-display: inline-block;
+export const Link = styled(NavLink)`
+  display: inline-block;
   text-decoration: none;
   padding: 12px;
   font-weight: 500;

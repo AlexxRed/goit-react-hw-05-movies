@@ -1,9 +1,12 @@
-import { Container } from "./Layout.styled";
+import  AppBar  from 'components/AppBar/AppBar';
+import { Outlet } from 'react-router-dom';
+import { Container } from './Layout.styled';
 
-export const Layout = () => {
+export default function Layout() {
     return (
-        <Container>
-            
-        </Container>
-    )
+    <Container>
+        <AppBar />
+        <Outlet />
+    </Container>
+    );
 }

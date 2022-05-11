@@ -1,9 +1,12 @@
-import { Navigation, Header } from './AppBar.styled';
+import { Link, Header } from './AppBar.styled';
 
-export const AppBar = () => {
+export default function AppBar() {
     return (
         <Header>
-            <Navigation />
+            <nav>
+                <Link to="/">Main</Link>
+                <Link to="/movies">Movies</Link>
+            </nav>
         </Header>
     )
 };

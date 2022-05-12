@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
+import {  keyframes } from '@emotion/react'
 import { NavLink } from 'react-router-dom';
 
-export const Logo = styled.span`
-  width: 30px;
-  &.active {
-    color: #2a363b;
-  }
+export const Logo = styled.div`
+  overflow: hidden;
+  height: 24px;
+  width: 24px; 
 `;
 export const Link = styled(NavLink)`
   display: inline-block;
@@ -30,4 +30,20 @@ export const Header = styled.header`
 export const Navigation = styled.nav`
   display: flex;
   align-items: center;
-`
+`;
+
+const filmReel  = keyframes`
+  0% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(-29px);
+  }
+`;
+
+
+export const LogoIcon = styled.div`
+  animation: ${filmReel} 1s linear infinite;
+  
+`;
+

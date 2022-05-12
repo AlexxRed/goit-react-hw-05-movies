@@ -16,7 +16,7 @@ export const FormContainer = styled.form`
     cursor: pointer;
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     :focus {
-        border: 1px solid #f32179;
+        border: 1px solid #2f21f3;
     }
 `;
 
@@ -25,7 +25,7 @@ export const FormContainer = styled.form`
     font-size: 16px;
     cursor: pointer;
     color: white;
-    background-color: #f32179;
+    background-color: #2f21f3;
     border-radius: 4px;
     border: 1px solid transparent;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
@@ -33,7 +33,7 @@ export const FormContainer = styled.form`
     margin-left: 10px;
     :hover,
     :focus {
-        background-color: #f321c6;
+        background-color: #7068d8;
     }
 `;
 

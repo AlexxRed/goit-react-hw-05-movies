@@ -30,11 +30,11 @@ export const HomePage = () => {
                                     {title ?? name}
                                 </Link>
                             </li>
-                        );
+                        )
                     })
-                };
+                }
                 </ul>
-            )};
+            )}
             <Outlet/>
         </>
     );

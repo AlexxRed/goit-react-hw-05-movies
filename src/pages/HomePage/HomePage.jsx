@@ -1,23 +1,42 @@
+import { PageTitle } from "components/PageTitle/PageTitle";
 import {useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link, Outlet } from 'react-router-dom';
 import * as API from "../../services/api";
 
 export const HomePage = () => {
     const [movies, setMovies] = useState(null);
+    // const location = useLocation()
+    // console.log(location);
 
     useEffect(() => {
         if (!movies) {
             const getMovies = async () => {
-                const data = await API.getTrendingMovies();
-                setMovies(data);
+                await API.getTrendingMovies().then(setMovies);
         }
-            getMovies(movies)
+            getMovies();
         }
-        
-        console.log(movies);
     }, [movies]);
     
     return (
-        <h1>Trending Movies</h1>
-    )
+        <>
+            <PageTitle text={'Trending Movies'} />
+            {movies && (
+            <ul>
+                {
+                    movies.map(({ title, name, id }) => {
+                        return (
+                            <li key={id}>
+                                <Link to={`movies/${id}`} >
+                                    {title ?? name}
+                                </Link>
+                            </li>
+                        );
+                    })
+                }
+                </ul>
+            )}
+            <Outlet/>
+        </>
+    );
 };
+

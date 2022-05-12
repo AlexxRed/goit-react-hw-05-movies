@@ -1,31 +1,39 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import *as API from "../../services/api"
+import { Loader } from "components/Loader/Loader"
+import { MovieContainer, MovieInfo, MovieAdditionalInfo } from "./MoviesDetailsPage.styled";
+import *as API from "../../services/api";
 
 export const MovieDetailsPage = () => {
     const [movie, setMovie] = useState(null);
-    console.log(useParams());
     const { movieId } = useParams();
-    console.log(movieId);
+    // console.log(movieId);
 
 
     useEffect(() => {
     const getData = async () => {
         const results = await API.getMovieDetails(movieId);
-        console.log(results);
         setMovie(results);
         };
+
         getData();
+
     }, [movieId]);
 
+    // const {poster_path, original_title, title, vote_average  } = movie
+
     return (
-        <div>
-            {!movie && <p>loading</p>}
-            {movie && <div>
-                {/* <img src={ }/> */}
-                <p>{ movie}</p>
-            </div>}
-        </div>
+        <>
+            {!movie && <Loader/>}
+            {movie && <p>{ movie.title }</p>}
+            {movie && (
+                <>
+                    <MovieContainer>
+                        <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} />
+                    </MovieContainer>
+                </>
+            )}
+        </>
     ) 
     
 }; 

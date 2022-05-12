@@ -6,8 +6,8 @@ import { MoviesPage } from "pages/MoviesPage/MoviesPage";
 import { HomePage } from "pages/HomePage/HomePage";
 import { CastPage } from "pages/CastPage/CastPage";
 import { Layout } from "../Layout/Layout";
-import { infoStyle } from "services/userInformator"
-infoStyle()
+import { infoStyle } from "services/userInformator";
+infoStyle();
 
 
 

@@ -15,3 +15,6 @@ export const MovieAdditionalInfo = styled.ul`
     padding-bottom: 20px;
     border-bottom: 1px solid #2a363b;
 `;
+export const AdditionalInfoItem = styled.li`
+    margin-bottom: 20px;
+`;

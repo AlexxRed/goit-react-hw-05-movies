@@ -32,9 +32,9 @@ export const HomePage = () => {
                             </li>
                         );
                     })
-                }
+                };
                 </ul>
-            )}
+            )};
             <Outlet/>
         </>
     );

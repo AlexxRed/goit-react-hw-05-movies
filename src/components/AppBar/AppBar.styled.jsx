@@ -1,6 +1,12 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+export const Logo = styled.span`
+  width: 30px;
+  &.active {
+    color: #2a363b;
+  }
+`;
 export const Link = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
@@ -21,3 +27,7 @@ export const Header = styled.header`
   margin-bottom: 16px;
   border-bottom: 1px solid #2a363b;
 `;
+export const Navigation = styled.nav`
+  display: flex;
+  align-items: center;
+`

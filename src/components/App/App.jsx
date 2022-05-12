@@ -2,10 +2,13 @@
 import { Routes, Route } from "react-router-dom";
 import { MovieDetailsPage } from "pages/MovieDetailsPage/MovieDetailsPage";
 import { NotFoundPage } from "pages/NotFoundPage/NotFoundPage";
+import { ReviewsPages } from "pages/ReviewsPage/ReviewsPage";
 import { MoviesPage } from "pages/MoviesPage/MoviesPage";
-import { Reviews } from "pages/Reviews/Reviews";
+import { HomePage } from "pages/HomePage/HomePage";
+import { CastPage } from "pages/CastPage/CastPage";
 import { Layout }  from "../Layout/Layout";
-import { Cast } from "pages/Cast/Cast";
+
+
 
 
 
@@ -14,10 +17,12 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="movies" element={<MoviesPage />} />
-          <Route path=":movieId" element={<MovieDetailsPage />} />
-          <Route path=":movieId/cast" element={<Cast />} />
-          <Route path=":movieId/reviews" element={<Reviews />} />
+          <Route index element={<HomePage/>}/>
+          <Route path="movies" element={<MoviesPage />} >
+            <Route path=":movieId" element={<MovieDetailsPage />} />
+          </Route>
+          <Route path=":movieId/cast" element={<CastPage />} />
+          <Route path=":movieId/reviews" element={<ReviewsPages />} />
           <Route path="*" element={<NotFoundPage/>}/>
         </Route >
       </Routes>

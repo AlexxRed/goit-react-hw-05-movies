@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import { useParams, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Loader } from "components/Loader/Loader";
-import { MovieContainer, MovieInfo, MovieAdditionalInfo, AdditionalInfoItem } from "./MoviesDetailsPage.styled";
+import { MovieContainer, MovieInfo, MovieAdditionalInfo, AdditionalInfoItem, Button } from "./MoviesDetailsPage.styled";
 import  notPoster  from "images/no-poster-available.jpg";
 import *as API from "../../services/api";
 
 export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
+    const location = useLocation();
+    const navigate = useNavigate()
+    // console.log(location);
+    // console.log(navigate);
+    
 
     useEffect(() => {
     const getData = async () => {
@@ -18,9 +23,14 @@ export default function MovieDetailsPage() {
         getData();
     }, [movieId]);
     
+    const handleClickGoBack = () => {
+        console.log(location);
+        navigate('/');
+    }
     return (
         <>
-            {!movie && <Loader/>}
+            {!movie && <Loader />}
+            <Button type="button" onClick={()=>handleClickGoBack()}>go back</Button>
             {movie && (
                 <>
                     <MovieContainer>

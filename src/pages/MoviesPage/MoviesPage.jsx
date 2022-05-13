@@ -58,10 +58,7 @@ export default function MoviesPage() {
                 <li key={movie.id}>
                     <Link
                     to={`${movie.id}`}
-                    state={{
-                        from: location,
-                    }}
-                    >
+                    state={{from: location}}>
                     {movie.title ?? movie.name}
                     </Link>
                 </li>

@@ -24,12 +24,21 @@ export default function MovieDetailsPage() {
     }, [movieId]);
     
     const handleClickGoBack = () => {
-        console.log(location);
-        navigate('/');
+        if (
+            location.pathname.includes('cast') ||
+            location.pathname.includes('reviews') ||
+            location?.state?.from?.search
+        ) {
+        return navigate(
+            location.state.from.pathname + location.state.from.search
+        );
+    }
+    navigate('/');;
     }
     return (
         <>
             {!movie && <Loader />}
+            {/* <Link to={location.state}>go back</Link> */}
             <Button type="button" onClick={()=>handleClickGoBack()}>go back</Button>
             {movie && (
                 <>

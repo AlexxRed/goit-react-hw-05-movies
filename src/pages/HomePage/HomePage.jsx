@@ -1,12 +1,12 @@
 import {useEffect, useState } from "react";
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet,useLocation } from 'react-router-dom';
 import { PageTitle } from "components/PageTitle/PageTitle";
 import { MovieItem } from "./HomePage.styled";
 import * as API from "../../services/api";
 
 export default function HomePage () {
     const [movies, setMovies] = useState(null);
-    // const location = useLocation()
+    const location = useLocation()
     // console.log(location);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function HomePage () {
                     movies.map(({ title, name, id }) => {
                         return (
                             <MovieItem key={id}>
-                                <Link to={`movies/${id}`} >
+                                <Link to={`movies/${id}`} state={{ from: location }}>
                                     {title ?? name}
                                 </Link>
                             </MovieItem>

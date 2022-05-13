@@ -11,7 +11,6 @@ export const getTrendingMovies = async () => {
         return response.data.results;
     } catch (error) {
         Notify.info(`${error.code}`);
-        <p>Sorry, page not found :( <Link to="/">Please go to main page</Link></p>
     };
 };
 
@@ -48,6 +47,7 @@ export const getMovieReviews = async id => {
         return response.data.results;
     } catch (error) {
         Notify.info(`${error.code}`);
+                <p>Sorry, page not found :( <Link to="/">Please go to main page</Link></p>
     };
 };
 

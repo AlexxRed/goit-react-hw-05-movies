@@ -4,7 +4,7 @@ import { Loader } from "components/Loader/Loader"
 import *as API from "../../services/api";
 
 
-export const ReviewsPages = () => {
+export default function ReviewsPages()  {
     const [reviews, setReviews] = useState(null);
     const { movieId } = useParams()
     

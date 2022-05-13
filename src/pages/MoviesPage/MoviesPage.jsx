@@ -5,7 +5,7 @@ import { Loader } from "components/Loader/Loader"
 import *as API from "../../services/api";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-export  function MoviesPage() {
+export default function MoviesPage() {
     const [inputValue, setInputValue] = useState('');
     const [movies, setMovies] = useState(null);
     const [query, setQuery] = useSearchParams();

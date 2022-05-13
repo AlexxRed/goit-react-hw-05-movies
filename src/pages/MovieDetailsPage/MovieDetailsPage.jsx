@@ -5,7 +5,7 @@ import { MovieContainer, MovieInfo, MovieAdditionalInfo, AdditionalInfoItem } fr
 import  notPoster  from "images/no-poster-available.jpg";
 import *as API from "../../services/api";
 
-export const MovieDetailsPage = () => {
+export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
 

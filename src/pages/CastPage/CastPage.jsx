@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Loader } from "components/Loader/Loader"
 import *as API from "../../services/api";
 
-export const CastPage = () => {
+export default function CastPage() {
     const [cast, setCast] = useState(null);
     const { movieId } = useParams();
 

@@ -3,7 +3,7 @@ import {useEffect, useState } from "react";
 import { Link, Outlet } from 'react-router-dom';
 import * as API from "../../services/api";
 
-export const HomePage = () => {
+export default function HomePage () {
     const [movies, setMovies] = useState(null);
     // const location = useLocation()
     // console.log(location);

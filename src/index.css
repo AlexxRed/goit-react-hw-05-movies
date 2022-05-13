@@ -17,3 +17,8 @@ code {
 ul {
   list-style: none;
 }
+
+a {
+  text-decoration: underline;
+  color: #0f4a7a;
+}

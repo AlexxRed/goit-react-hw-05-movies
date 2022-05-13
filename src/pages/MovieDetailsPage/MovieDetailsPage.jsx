@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, NavLink, Outlet } from "react-router-dom";
-import { Loader } from "components/Loader/Loader"
+import { Loader } from "components/Loader/Loader";
 import { MovieContainer, MovieInfo, MovieAdditionalInfo, AdditionalInfoItem } from "./MoviesDetailsPage.styled";
 import  notPoster  from "images/no-poster-available.jpg";
 import *as API from "../../services/api";

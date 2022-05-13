@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { infoStyle } from "services/userInformator";
+import { Loader } from "components/Loader/Loader";
 infoStyle();
 
 const Layout = lazy(() => import("../Layout/Layout" /* webpackChunkName: "layout" */));
@@ -14,20 +15,14 @@ const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage" /* webp
 export const App = () => {
   return (
     <>
-      <Suspense fallback={<></>}>
+      <Suspense fallback={<>{<Loader/>}</>}>
       <Routes>
           <Route path="/" element={<Layout />}>
           <Route index element={<HomePage/>}/>
           <Route path="movies" element={<MoviesPage />} />
           <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-              <Route path="cast" element={
-                <Suspense fallback={<></>}>
-                  <CastPage />
-                </Suspense>} />
-              <Route path="reviews" element={
-                <Suspense fallback={<></>}>
-                  <ReviewsPages />
-                </Suspense>} />
+              <Route path="cast" element={<Suspense fallback={<>{<Loader/>}</>}><CastPage /></Suspense>} />
+              <Route path="reviews" element={<Suspense fallback={<>{<Loader/>}</>}><ReviewsPages /></Suspense>} />
           </Route>
           <Route path="*" element={<NotFoundPage/>}/>
         </Route >

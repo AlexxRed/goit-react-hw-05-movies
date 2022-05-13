@@ -1,6 +1,7 @@
-import { PageTitle } from "components/PageTitle/PageTitle";
 import {useEffect, useState } from "react";
 import { Link, Outlet } from 'react-router-dom';
+import { PageTitle } from "components/PageTitle/PageTitle";
+import { MovieItem } from "./HomePage.styled";
 import * as API from "../../services/api";
 
 export default function HomePage () {
@@ -25,11 +26,11 @@ export default function HomePage () {
                 {
                     movies.map(({ title, name, id }) => {
                         return (
-                            <li key={id}>
+                            <MovieItem key={id}>
                                 <Link to={`movies/${id}`} >
                                     {title ?? name}
                                 </Link>
-                            </li>
+                            </MovieItem>
                         )
                     })
                 }

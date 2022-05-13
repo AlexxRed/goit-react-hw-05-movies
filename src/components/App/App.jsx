@@ -5,17 +5,11 @@ infoStyle();
 
 const Layout = lazy(() => import("../Layout/Layout" /* webpackChunkName: "layout" */));
 const HomePage = lazy(() => import("pages/HomePage/HomePage" /* webpackChunkName: "home-page" */));
-const MoviesPage = lazy(() => import("pages/MoviesPage/MoviesPage" /* webpackChunkName: "cast" */));
-const MovieDetailsPage = lazy(() => import("pages/MovieDetailsPage/MovieDetailsPage" /* webpackChunkName: "cast" */));
+const MoviesPage = lazy(() => import("pages/MoviesPage/MoviesPage" /* webpackChunkName: "movie-page" */));
+const MovieDetailsPage = lazy(() => import("pages/MovieDetailsPage/MovieDetailsPage" /* webpackChunkName: "details-page" */));
 const CastPage = lazy(() => import("pages/CastPage/CastPage" /* webpackChunkName: "cast" */));
 const ReviewsPages = lazy(() => import("pages/ReviewsPage/ReviewsPage" /* webpackChunkName: "reviews" */));
 const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage" /* webpackChunkName: "not-found" */));
-
-
-
-
-
-
 
 export const App = () => {
   return (

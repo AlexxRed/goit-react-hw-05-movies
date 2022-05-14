@@ -29,6 +29,9 @@ export default function MovieDetailsPage() {
             location.pathname.includes('reviews') ||
             location?.state?.from?.search
         ) {
+
+            console.log(location.state.from.pathname);
+            console.log(location.state.from.search);
         return navigate(
             location.state.from.pathname + location.state.from.search
         );
@@ -59,10 +62,10 @@ export default function MovieDetailsPage() {
                     <p>Additional information</p>
                     <MovieAdditionalInfo>
                         <AdditionalInfoItem>
-                            <NavLink to="cast">Cast</NavLink>
+                            <NavLink to="cast" state={location.state}>Cast</NavLink>
                         </AdditionalInfoItem>
                         <AdditionalInfoItem>
-                            <NavLink to="reviews">Reviews</NavLink>
+                            <NavLink to="reviews" state={location.state}>Reviews</NavLink>
                         </AdditionalInfoItem>
                         </MovieAdditionalInfo>
                         <Outlet />

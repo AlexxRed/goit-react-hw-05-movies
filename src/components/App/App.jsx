@@ -12,19 +12,28 @@ const CastPage = lazy(() => import("pages/CastPage/CastPage" /* webpackChunkName
 const ReviewsPages = lazy(() => import("pages/ReviewsPage/ReviewsPage" /* webpackChunkName: "reviews" */));
 const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage" /* webpackChunkName: "not-found" */));
 
+const urls = {
+  layout: '/',
+  moviesPage: 'movies',
+  movieDetailsPage: 'movies/:movieId',
+  castPage: 'cast',
+  reviewsPages: 'reviews',
+  notFoundPage: '*'
+};
+
 export const App = () => {
   return (
     <>
       <Suspense fallback={<>{<Loader/>}</>}>
       <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path={urls.layout} element={<Layout />}>
           <Route index element={<HomePage/>}/>
-          <Route path="movies" element={<MoviesPage />} />
-          <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-              <Route path="cast" element={<Suspense fallback={<>{<Loader/>}</>}><CastPage /></Suspense>} />
-              <Route path="reviews" element={<Suspense fallback={<>{<Loader/>}</>}><ReviewsPages /></Suspense>} />
+          <Route path={urls.moviesPage} element={<MoviesPage />} />
+          <Route path={urls.movieDetailsPage} element={<MovieDetailsPage />}>
+              <Route path={urls.castPage} element={<Suspense fallback={<>{<Loader/>}</>}><CastPage /></Suspense>} />
+              <Route path={urls.reviewsPages} element={<Suspense fallback={<>{<Loader/>}</>}><ReviewsPages /></Suspense>} />
           </Route>
-          <Route path="*" element={<NotFoundPage/>}/>
+          <Route path={urls.notFoundPage} element={<NotFoundPage/>}/>
         </Route >
         </Routes>
         </Suspense>

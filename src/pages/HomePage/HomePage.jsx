@@ -12,7 +12,8 @@ export default function HomePage () {
     useEffect(() => {
         if (!movies) {
             const getMovies = async () => {
-                await API.getTrendingMovies().then(setMovies);
+                const fetchMovies = await API.getTrendingMovies()
+                setMovies(fetchMovies)
         }
             getMovies();
         }

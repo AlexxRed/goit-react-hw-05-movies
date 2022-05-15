@@ -25,17 +25,17 @@ export const App = () => {
   return (
     <>
       <Suspense fallback={<>{<Loader/>}</>}>
-      <Routes>
-          <Route path={urls.layout} element={<Layout />}>
-          <Route index element={<HomePage/>}/>
-          <Route path={urls.moviesPage} element={<MoviesPage />} />
-          <Route path={urls.movieDetailsPage} element={<MovieDetailsPage />}>
-              <Route path={urls.castPage} element={<Suspense fallback={<>{<Loader/>}</>}><CastPage /></Suspense>} />
-              <Route path={urls.reviewsPages} element={<Suspense fallback={<>{<Loader/>}</>}><ReviewsPages /></Suspense>} />
-          </Route>
-          <Route path={urls.notFoundPage} element={<NotFoundPage/>}/>
-        </Route >
-        </Routes>
+        <Routes>
+            <Route path={urls.layout} element={<Layout />}>
+            <Route index element={<HomePage/>}/>
+            <Route path={urls.moviesPage} element={<MoviesPage />} />
+            <Route path={urls.movieDetailsPage} element={<MovieDetailsPage />}>
+                <Route path={urls.castPage} element={<Suspense fallback={<>{<Loader/>}</>}><CastPage /></Suspense>} />
+                <Route path={urls.reviewsPages} element={<Suspense fallback={<>{<Loader/>}</>}><ReviewsPages /></Suspense>} />
+            </Route>
+            <Route path={urls.notFoundPage} element={<NotFoundPage/>}/>
+          </Route >
+          </Routes>
         </Suspense>
     </>
   );

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { FormContainer, FormInput, Button } from './MoviesPage.styled';
+import { FormContainer, FormInput, Button, MoviesList, ListItem } from './MoviesPage.styled';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { Loader } from "components/Loader/Loader"
 import *as API from "../../services/api";
+import  notPoster  from "images/no-poster-available.jpg";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export default function MoviesPage() {
@@ -52,19 +53,22 @@ export default function MoviesPage() {
         </FormContainer>
         {!movies && query.get('query') && <Loader />}
         {movies && (
-            <ul>
+            <MoviesList>
             {movies.map(movie => {
                 return (
-                <li key={movie.id}>
+                <ListItem key={movie.id}>
                     <Link
                     to={`${movie.id}`}
-                    state={{from: location}}>
+                            state={{ from: location }}>
+                            {movie.poster_path?
+                                        (<img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} width={300} height={450} />) :
+                                (<img src={notPoster} alt="Uknown"  width={300} height={450}/>)}
                     {movie.title ?? movie.name}
                     </Link>
-                </li>
+                </ListItem>
                 );
             })}
-            </ul>
+            </MoviesList>
         )}
         </>
     );

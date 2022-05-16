@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const MovieItem = styled.li`
 padding-bottom: 20px;
-    padding: 5px 0px;
     height: 471px;
     cursor: pointer;
     margin: 0;

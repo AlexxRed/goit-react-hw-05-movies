@@ -38,7 +38,6 @@ export const FormContainer = styled.form`
 `;
 
 export const ListItem = styled.li`
-    padding: 5px 0px;
     height: 471px;
     cursor: pointer;
     margin: 0;

@@ -8,26 +8,25 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export default function MoviesPage() {
     const [inputValue, setInputValue] = useState('');
-    const [movies, setMovies] = useState(null);
+    const [movies, setMovies] = useState([]);
     const [query, setQuery] = useSearchParams();
     const location = useLocation();
 
     useEffect(() => {
         if (!query.get('query')) {
-        setMovies(null);
-        return;
+            setMovies(null);
+            return;
         }
-
         const getData = async () => {
             try {
                 const results = await API.getSearchMovies(query.get('query'));
                 setMovies(results);
                 if (results.length === 0) {
                     Notify.info('Movies is not found');
-                    }
+                };
             } catch (error) {
                 Notify.info(`${error.code}`);
-        };
+            };
         };
         getData();
     }, [query]);
@@ -40,7 +39,7 @@ export default function MoviesPage() {
         e.preventDefault();
         if (!inputValue) {
             Notify.info('Please enter film name');
-        }
+        };
         setQuery({ query: inputValue });
         setInputValue('');
     };

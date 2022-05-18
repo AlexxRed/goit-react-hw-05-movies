@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { infoStyle } from "services/userInformator";
 import { Loader } from "components/Loader/Loader";
+import { urls } from "../../services/urls";
 infoStyle();
 
 const Layout = lazy(() => import("../Layout/Layout" /* webpackChunkName: "layout" */));
@@ -11,15 +12,6 @@ const MovieDetailsPage = lazy(() => import("pages/MovieDetailsPage/MovieDetailsP
 const CastPage = lazy(() => import("pages/CastPage/CastPage" /* webpackChunkName: "cast" */));
 const ReviewsPages = lazy(() => import("pages/ReviewsPage/ReviewsPage" /* webpackChunkName: "reviews" */));
 const NotFoundPage = lazy(() => import("pages/NotFoundPage/NotFoundPage" /* webpackChunkName: "not-found" */));
-
-const urls = {
-  layout: '/',
-  moviesPage: 'movies',
-  movieDetailsPage: 'movies/:movieId',
-  castPage: 'cast',
-  reviewsPages: 'reviews',
-  notFoundPage: '*'
-};
 
 export const App = () => {
   return (

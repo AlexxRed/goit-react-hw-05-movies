@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loader } from "components/Loader/Loader"
 import *as API from "../../services/api";
 
@@ -10,10 +12,15 @@ export default function ReviewsPages()  {
     
     useEffect(() => {
         const getReviews = async () => {
+            try {
             const result = await API.getMovieReviews(movieId)
-            setReviews(result)
+                setReviews(result)
+            } catch (error) {
+                Notify.info(`${error.code}`);
+                <p>Sorry, page not found :( <Link to="/">Please go to main page</Link></p>
+            };
         }
-        getReviews()
+        getReviews();
     }, [movieId]);
 
     return (

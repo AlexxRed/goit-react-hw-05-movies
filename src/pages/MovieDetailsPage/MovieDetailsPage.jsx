@@ -2,22 +2,28 @@ import { useState, useEffect } from "react";
 import { useParams, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Loader } from "components/Loader/Loader";
 import { MovieContainer, MovieInfo, MovieAdditionalInfo, AdditionalInfoItem, Button } from "./MoviesDetailsPage.styled";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import  notPoster  from "images/no-poster-available.jpg";
 import *as API from "../../services/api";
+
 
 export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     // console.log(location);
     // console.log(navigate);
     
 
     useEffect(() => {
-    const getData = async () => {
-        const results = await API.getMovieDetails(movieId);
-        setMovie(results);
+        const getData = async () => {
+        try {
+            const results = await API.getMovieDetails(movieId);
+            setMovie(results);
+        } catch (error) {
+            Notify.info(`${error.code}`);
+        };
         };
         
         getData();

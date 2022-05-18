@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Loader } from "components/Loader/Loader"
 import *as API from "../../services/api";
 
@@ -9,8 +10,12 @@ export default function CastPage() {
 
     useEffect(() => {
         const getCast = async () => {
-            const result = await API.getMovieCredits(movieId)
-            setCast(result)
+            try {
+                const result = await API.getMovieCredits(movieId)
+                setCast(result)
+            } catch (error) {
+                Notify.info(`${error.code}`);
+    };
         }
         getCast()
     }, [movieId]);

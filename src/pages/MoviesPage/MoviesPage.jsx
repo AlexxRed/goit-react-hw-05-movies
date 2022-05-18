@@ -19,11 +19,15 @@ export default function MoviesPage() {
         }
 
         const getData = async () => {
-        const results = await API.getSearchMovies(query.get('query'));
-        setMovies(results);
-        if (results.length === 0) {
-            Notify.info('Movies is not found');
-        }
+            try {
+                const results = await API.getSearchMovies(query.get('query'));
+                setMovies(results);
+                if (results.length === 0) {
+                    Notify.info('Movies is not found');
+                    }
+            } catch (error) {
+                Notify.info(`${error.code}`);
+        };
         };
         getData();
     }, [query]);
